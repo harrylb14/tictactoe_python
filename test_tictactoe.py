@@ -1,4 +1,4 @@
-from tictactoe import Game
+from game import Game
 class Tests:
   def test_empty_board(self):
     game = Game()
