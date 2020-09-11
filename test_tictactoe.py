@@ -13,7 +13,7 @@ class Tests:
     game = Game()
     board = game.board
     player = game.player1
-    player.move(board,0,0)
+    player.move(0,0)
     assert board.state == [["X","-","-"],
                            ["-","-","-"],
                            ["-","-","-"]]
@@ -25,8 +25,8 @@ class Tests:
     player1 = game.player1
     player2 = game.player2
 
-    player1.move(board,0,0)
-    player2.move(board,0,1)
+    player1.move(0,0)
+    player2.move(0,1)
     assert board.state == [["X","O","-"],
                            ["-","-","-"],
                            ["-","-","-"]]
@@ -38,8 +38,8 @@ class Tests:
     player1 = game.player1
     player2 = game.player2
 
-    player1.move(board,0,0)
-    player2.move(board,0,0)
+    player1.move(0,0)
+    player2.move(0,0)
     out, err = capsys.readouterr()
     assert "Square not vacant\n" in out
     assert game.turn == "PlayerO"
@@ -49,7 +49,7 @@ class Tests:
     board = game.board
     player2 = game.player2
 
-    player2.move(board,0,0)
+    player2.move(0,0)
     out, err = capsys.readouterr()
     assert "Square not vacant\n" in out
     
