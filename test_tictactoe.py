@@ -1,5 +1,7 @@
 from game import Game
+
 class Tests:
+
   def test_empty_board(self):
     game = Game()
     board = game.board
