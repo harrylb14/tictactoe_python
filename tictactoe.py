@@ -2,8 +2,8 @@
 class Game:
   def __init__(self):
     self.board = Board()
-    self.player1 = PlayerX(self, self.board)
-    self.player2 = PlayerO(self, self.board)
+    self.player1 = Player(self, self.board, "X")
+    self.player2 = Player(self, self.board, "O")
     self.turn = "PlayerX"
     self.game_over = False
 
@@ -24,7 +24,13 @@ class Game:
       return("No winner")
     else:
       return("Game in progress")
-  
+
+  def change_turn(self):
+    if self.turn == "PlayerX":
+      self.turn = "PlayerO"
+    else:
+      self.turn = "PlayerX"
+    
   
 class Board:
   def __init__(self):
@@ -32,28 +38,16 @@ class Board:
                   ["-","-","-"],
                   ["-","-","-"]]
 
-class PlayerX:
-  def __init__(self, game, board):
+class Player:
+  def __init__(self, game, board, shape):
     self.game = game 
     self.board = board
+    self.shape = shape
 
   def move(self, board, column, row):
-    if board.state[column][row] == "-" and self.game.turn == "PlayerX":
-      board.state[column][row] = "X" 
+    if board.state[column][row] == "-" and self.game.turn == f"Player{self.shape}":
+      board.state[column][row] = f"{self.shape}" 
       print(board.state)
-      self.game.turn = "PlayerO"
-    else:
-      print("Square not vacant")
-
-class PlayerO:
-  def __init__(self, game, board):
-    self.game = game 
-    self.board = board
-
-  def move(self, board, column, row):
-    if board.state[column][row] == "-" and self.game.turn == "PlayerO":
-      board.state[column][row] = "O" 
-      print(board.state)
-      self.game.turn = "PlayerX"
+      self.game.change_turn()
     else:
       print("Square not vacant")
