@@ -11,7 +11,7 @@ pytest
 ```
 To run: 
 ```
-python
+python3
 ```
 
 ### Approach 
