@@ -35,7 +35,6 @@ class Tests:
 
   def test_only_place_on_vacant_square(self, capsys):
     game = Game()
-    board = game.board
     player1 = game.player1
     player2 = game.player2
 
@@ -47,7 +46,6 @@ class Tests:
 
   def test_can_only_go_on_your_move(self, capsys):
     game = Game()
-    board = game.board
     player2 = game.player2
 
     player2.move(0,0)
