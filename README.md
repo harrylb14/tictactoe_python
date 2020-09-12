@@ -12,6 +12,7 @@ pytest
 To run: 
 ```
 python3
+import game from Game
 ```
 
 ### Approach 
