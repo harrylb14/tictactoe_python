@@ -56,35 +56,35 @@ class Tests:
     
   def test_winner_row(self):
     game = Game()
-    game.board = [["X","X","X"],
-                  ["O","X","O"],
-                  ["-","-","-"]]
+    game.board.state = [["X","X","X"],
+                        ["O","X","O"],
+                        ["-","-","-"]]
     assert(game.winner() == "X")
 
   def test_winner_column(self):
     game = Game()
-    game.board = [["X","X","O"],
-                  ["O","X","O"],
-                  ["-","-","O"]]
+    game.board.state = [["X","X","O"],
+                        ["O","X","O"],
+                        ["-","-","O"]]
     assert(game.winner() == "O")
 
   def test_winner_diagonal(self):
     game = Game()
-    game.board = [["X","X","O"],
-                  ["O","X","O"],
-                  ["-","-","X"]]
+    game.board.state = [["X","X","O"],
+                        ["O","X","O"],
+                        ["-","-","X"]]
     assert(game.winner() == "X")
 
   def test_game_in_progress(self):
     game = Game()
-    game.board = [["X","X","O"],
-                  ["O","X","O"],
-                  ["-","-","-"]]
+    game.board.state = [["X","X","O"],
+                        ["O","X","O"],
+                        ["-","-","-"]]
     assert(game.winner() == "Game in progress")
 
   def test_over_no_winner(self):
     game = Game()
-    game.board = [["O","X","O"],
-                  ["O","X","O"],
-                  ["X","O","X"]]
+    game.board.state = [["O","X","O"],
+                        ["O","X","O"],
+                        ["X","O","X"]]
     assert(game.winner() == "No winner")

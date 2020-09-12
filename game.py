@@ -9,8 +9,7 @@ class Game:
     self.player2 = Player(self, self.board, "O")
     self.turn = "PlayerX"
 
-  def checkForWinner(self):
-      board = self.board
+  def checkForWinner(self, board):
       #transposition to check rows, then columns
       for newBoard in [board, np.transpose(board)]:
           result = self.checkRows(newBoard)
@@ -32,9 +31,9 @@ class Game:
       return 0
 
   def winner(self):
-    board = np.array(self.board)
-    if self.checkForWinner() not in [0, "-"]:
-      return self.checkForWinner()
+    board = np.array(self.board.state)
+    if self.checkForWinner(board) not in [0, "-"]:
+      return self.checkForWinner(board)
     elif('-' not in board):
       return("No winner")
     else:
