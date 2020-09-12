@@ -1,22 +1,23 @@
 from game import Game
+import numpy as np
 
 class Tests:
 
   def test_empty_board(self):
     game = Game()
     board = game.board
-    assert board.state == [["-","-","-"],
+    assert(board.state == [["-","-","-"],
                            ["-","-","-"],
-                           ["-","-","-"]]
+                           ["-","-","-"]]).all()
 
   def test_playerX_go(self):
     game = Game()
     board = game.board
     player = game.player1
     player.move(0,0)
-    assert board.state == [["X","-","-"],
+    assert(board.state == [["X","-","-"],
                            ["-","-","-"],
-                           ["-","-","-"]]
+                           ["-","-","-"]]).all()
     assert game.turn == "PlayerO"
   
   def test_playerY_go(self):
@@ -27,9 +28,9 @@ class Tests:
 
     player1.move(0,0)
     player2.move(0,1)
-    assert board.state == [["X","O","-"],
+    assert(board.state == [["X","O","-"],
                            ["-","-","-"],
-                           ["-","-","-"]]
+                           ["-","-","-"]]).all()
     assert game.turn == "PlayerX"
 
   def test_only_place_on_vacant_square(self, capsys):

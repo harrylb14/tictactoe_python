@@ -32,9 +32,10 @@ class Game:
       return 0
 
   def winner(self):
+    board = np.array(self.board)
     if self.checkForWinner() not in [0, "-"]:
       return self.checkForWinner()
-    elif sum(x.count('-') for x in self.board) == 0:
+    elif('-' not in board):
       return("No winner")
     else:
       return("Game in progress")
