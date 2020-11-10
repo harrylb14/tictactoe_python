@@ -23,7 +23,7 @@ class Tests:
   def test_playerY_go(self):
     game = Game()
     board = game.board
-    player1 = game.player1
+    player1 = game.player1 
     player2 = game.player2
 
     player1.move(0,0)
