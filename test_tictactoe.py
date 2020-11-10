@@ -4,7 +4,7 @@ import numpy as np
 class Tests:
 
   def test_empty_board(self):
-    game = Game()
+    game = Game() 
     board = game.board
     assert(board.state == [["-","-","-"],
                            ["-","-","-"],
