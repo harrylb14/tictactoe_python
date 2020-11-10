@@ -27,7 +27,7 @@ class Tests:
     player2 = game.player2
 
     player1.move(0,0)
-    player2.move(0,1)
+    player2.move(0,1) 
     assert(board.state == [["X","O","-"],
                            ["-","-","-"],
                            ["-","-","-"]]).all()
